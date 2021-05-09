@@ -7,6 +7,7 @@ import '../styles/Home.css';
 import '../styles/Text.css';
 import '../styles/Button.css'
 import axios from 'axios';
+import fileDownload from 'js-file-download';
 
 const Home = () => {
 
@@ -43,6 +44,20 @@ const Home = () => {
         setUpdate(update ? 0 : 1);
     }
 
+    const fileUpload = async (e) => {
+        if (e.target.files[0]) {
+            let reader = new FileReader();
+            const file = e.target.files[0]
+            reader.readAsText(file);
+            reader.onload = () => {
+                if (reader.result) {
+                    const uploadedString = reader.result;
+                    setNominations(JSON.parse(uploadedString));
+                }
+            }
+        }
+    }
+
     /* Render */
     return (
         <div className="home">
@@ -50,8 +65,22 @@ const Home = () => {
             <SearchBar input={searchValue} updateSearchValue={updateSearchValue} updateValue={updateValue} />
             <div className="split-container" >
                 <div style={{ width: '59%', float: 'left' }}><Results results={results.data ? results.data.Search ? results.data.Search : 0 : 0} nominate={nominate} nominations={nominations}/></div>
-                <div style={{ width: '39%', float: 'right' }}><Nominations nominations={nominations} removeNominate={removeNominate}/>{nominations.length === 5 ? <button className="positive-button" onClick={() => {}}>Submit Nominations</button> : <button className="gray-button" style={{ cursor: 'unset' }}>Submit Nominations</button> }</div>
-                
+                <div style={{ width: '39%', float: 'right' }}>
+                    <Nominations nominations={nominations} removeNominate={removeNominate}/>
+                    {nominations.length === 5 ? 
+                    <div>
+                        <button className="positive-button break" onClick={() => {}}>Submit Nominations</button>
+                        <button className="neutral-button break" onClick={() => {if (nominations.length !== 0) fileDownload(JSON.stringify(nominations), 'nominations.txt')}}>Download List</button>
+                        <button className="neutral-button break" onClick={() => {document.getElementById("upload-list").click()}}>Upload List</button>
+                        <input type="file" id="upload-list" className="neutral-button break" placeholder="Upload List" style={{ display: 'none' }} onChange={fileUpload}/>
+                    </div> : 
+                    <div>
+                        <button className="gray-button break" style={{ cursor: 'unset' }}>Submit Nominations</button>
+                        <button className="neutral-button break" onClick={() => {if (nominations.length !== 0) fileDownload(JSON.stringify(nominations), 'nominations.txt')}}>Download List</button>
+                        <button className="neutral-button break" onClick={() => {document.getElementById("upload-list").click()}}>Upload List</button>
+                        <input type="file" id="upload-list" className="neutral-button break" placeholder="Upload List" style={{ display: 'none' }} onChange={fileUpload}/>
+                    </div> }
+                </div>
             </div>
         </div>
     );

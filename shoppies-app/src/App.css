@@ -7,7 +7,7 @@
   justify-content: flex-start;
   align-items: center;
   background-color: var(--background-color);
-  height: 100vh;
+  min-height: 100vh;
   user-select: none;
 }
 
