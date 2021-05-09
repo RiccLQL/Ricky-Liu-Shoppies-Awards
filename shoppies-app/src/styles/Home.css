@@ -1,0 +1,39 @@
+@import './_colors.css';
+
+.home {
+    width: 70vw;
+    margin-top: 100px;
+    text-align: left;
+}
+
+.row-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--component-color);
+    padding: 0px 20px 20px 20px;
+    border-radius: 5px;
+}
+
+.container {
+    background-color: var(--component-color);
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.column-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--component-color);
+    padding: 0px 20px 20px 20px;
+    border-radius: 5px;
+}
+
+.left-align {
+    text-align: left;
+    justify-content: left;
+    align-items: flex-start;
+}

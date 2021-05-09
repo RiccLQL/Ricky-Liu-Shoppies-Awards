@@ -1,0 +1,23 @@
+@import "./_colors.css";
+
+.list-item {
+    text-decoration: none;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 10px;
+    transition: 0.3s all;
+    border-radius: 5px;
+}
+
+.list-item:hover {
+    background-color: var(--background-color);
+}
+
+.list {
+    list-style: none;
+    padding-inline-start: 0;
+    width: 100%;
+    font-family: var(--font-family);
+    font-size: var(--body-font-size);
+    font-weight: var(--body-font-weight);
+    line-height: var(--body-line-height);
+}

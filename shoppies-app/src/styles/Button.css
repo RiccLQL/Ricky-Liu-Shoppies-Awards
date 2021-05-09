@@ -1,0 +1,37 @@
+@import './_colors.css';
+
+button {
+    padding: 10px 18px 10px 18px;
+    border-radius: 5px;
+    border: none;
+    color: var(--text-color);
+    font-family: var(--font-family);
+    line-height: var(--button-line-height);
+    font-size: var(--button-font-size);
+    font-weight: var(--button-font-weight);
+    transition: all 0.3s;
+}
+
+.neutral-button {
+    background-color: var(--neutral-button-color);
+}
+
+.neutral-button:hover {
+    background-color: var(--neutral-button-color-hover);
+}
+
+.positive-button {
+    background-color: var(--positive-button-color);
+}
+
+.positive-button:hover {
+    background-color: var(--positive-button-color-hover);
+}
+
+.negative-button {
+    background-color: var(--negative-button-color);
+}
+
+.negative-button:hover {
+    background-color: var(--negative-button-color-hover);
+}

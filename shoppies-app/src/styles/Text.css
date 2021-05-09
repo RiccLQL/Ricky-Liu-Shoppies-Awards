@@ -1,0 +1,17 @@
+@import './_colors.css';
+
+h1 {
+    font-family: var(--font-family);
+    font-size: var(--title-font-size);
+    font-weight: var(--title-font-weight);
+    line-height: var(--title-line-height);
+}
+
+h4 {
+    font-family: var(--font-family);
+    font-size: var(--heading-font-size);
+    font-weight: var(--heading-font-weight);
+    line-height: var(--heading-line-height);
+    padding: 20px 20px 20px 20px;
+    margin: 0;
+}

@@ -1,0 +1,15 @@
+@import './_colors.css';
+
+.search-element {
+    all:unset;
+    padding: 10px 18px 10px 18px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--background-color);
+    font-family: var(--font-family);
+    font-size: var(--caption-font-size);
+    font-weight: var(--caption-font-weight);
+    line-height: var(--caption-line-height);
+    margin-right: 10px;
+    width: 100%;
+}
