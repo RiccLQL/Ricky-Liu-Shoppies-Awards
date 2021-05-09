@@ -9,7 +9,7 @@ import '../styles/Button.css'
 import axios from 'axios';
 import fileDownload from 'js-file-download';
 
-const Home = () => {
+const Home = ({goToSubmitted}) => {
 
     const [ searchValue, setSearchValue ] = useState("");
     const [ results, setResults ] = useState("");
@@ -69,14 +69,14 @@ const Home = () => {
                     <Nominations nominations={nominations} removeNominate={removeNominate}/>
                     {nominations.length === 5 ? 
                     <div>
-                        <button className="positive-button break" onClick={() => {}}>Submit Nominations</button>
-                        <button className="neutral-button break" onClick={() => {if (nominations.length !== 0) fileDownload(JSON.stringify(nominations), 'nominations.txt')}}>Download List</button>
+                        <button className="positive-button break" onClick={() => {goToSubmitted()}}>Submit Nominations</button>
+                        <button className="neutral-button break" onClick={() => {if (nominations.length !== 0) fileDownload(JSON.stringify(nominations), `nominations-${nominations[0].Title}${nominations.length === 1 ? '' : 'and more'}.txt`)}}>Download List</button>
                         <button className="neutral-button break" onClick={() => {document.getElementById("upload-list").click()}}>Upload List</button>
                         <input type="file" id="upload-list" className="neutral-button break" placeholder="Upload List" style={{ display: 'none' }} onChange={fileUpload}/>
                     </div> : 
                     <div>
                         <button className="gray-button break" style={{ cursor: 'unset' }}>Submit Nominations</button>
-                        <button className="neutral-button break" onClick={() => {if (nominations.length !== 0) fileDownload(JSON.stringify(nominations), 'nominations.txt')}}>Download List</button>
+                        <button className="neutral-button break" onClick={() => {if (nominations.length !== 0) fileDownload(JSON.stringify(nominations), `nominations-${nominations[0].Title}${nominations.length === 1 ? '' : ' and more'}.txt`)}}>Download List</button>
                         <button className="neutral-button break" onClick={() => {document.getElementById("upload-list").click()}}>Upload List</button>
                         <input type="file" id="upload-list" className="neutral-button break" placeholder="Upload List" style={{ display: 'none' }} onChange={fileUpload}/>
                     </div> }

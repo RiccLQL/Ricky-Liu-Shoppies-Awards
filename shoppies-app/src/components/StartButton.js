@@ -1,6 +1,7 @@
 import React from 'react';
+import '../styles/Button.css'
 
-const StartButton = () => {
+const StartButton = ({goToHome}) => {
 
     /* functions */
 
@@ -10,8 +11,8 @@ const StartButton = () => {
 
     return (
         <div>
-            <button>
-                
+            <button className="positive-button" onClick={() => goToHome()}>
+                Start nominating my favorite movies!
             </button>
         </div>
     )

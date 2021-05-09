@@ -2,7 +2,7 @@ import React from 'react';
 
 import StartButton from '../components/StartButton';
 
-class Start extends React.Component {
+const Start = ({goToHome}) => {
 
     /* functions */
 
@@ -10,13 +10,15 @@ class Start extends React.Component {
 
     /* Render */
 
-    render() {
-        return (
-            <div className="start">
-                <StartButton/>
+    return (
+        <div className="start">
+            <div>
+                <h1>The Shoppies: Shopify's Movie Awards</h1>
+                <br></br>
             </div>
-        );
-    }
+            <StartButton goToHome={goToHome}/>
+        </div>
+    );
 }
 
 export default Start;
