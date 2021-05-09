@@ -35,3 +35,13 @@ button {
 .negative-button:hover {
     background-color: var(--negative-button-color-hover);
 }
+
+.nominate-button {
+    animation-name: nominate-appear;
+    animation-duration: 0.5s;
+}
+
+@keyframes nominate-appear {
+    from {opacity: 0;}
+    to {opacity: 100;}
+}

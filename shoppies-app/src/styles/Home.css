@@ -37,3 +37,7 @@
     justify-content: left;
     align-items: flex-start;
 }
+
+.split-container {
+    display: block;
+}

@@ -11,7 +11,7 @@ const SearchBar = ({input, updateSearchValue, updateValue}) => {
             <h4>Movie Title</h4>
             <div className="row-container">
                 <input className="search-element" id="search-element" type="text" value={input} onChange={(e) => updateValue(e.target.value)} onKeyDown={(e) => updateSearchValue(e.target.value, e)} placeholder="Search for a movie to nominate"/>
-                <Button caption="Search" color="neutral" updateSearch={(e) => updateSearchValue(document.getElementById("search-element").value, e)}/>
+                <Button caption="Search" color="neutral" trigger={(e) => updateSearchValue(document.getElementById("search-element").value, e)}/>
             </div>
         </div>
     );

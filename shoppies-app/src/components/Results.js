@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Results.css';
 import MovieEntry from './MovieEntry';
 
-const Results = ({results}) => {
+const Results = ({results, nominate}) => {
 
-    /* functions */
+    let expandArray = new Array(results.length);
+
+    const [expand, setExpand] = useState(expandArray);
+
+    const updateEntry = (index) => {
+        let items = expand;
+        items = new Array(results.length);
+        items[index] = 1;
+        setExpand(items);
+    }
 
     /* Render */
     if (results !== 0) {
@@ -14,7 +23,7 @@ const Results = ({results}) => {
                 <div className="column-container left-align">
                     <div className="list">
                         {results.map((item, index) => {
-                            return <MovieEntry className="list-item" key={index} data={item}></MovieEntry>
+                            return <MovieEntry id={'movie-entry-' + index} className="list-item" key={index} index={index} data={item} expand={expand[index]} updateEntry={updateEntry} nominate={nominate}/>
                         })}
                     </div>
                 </div>

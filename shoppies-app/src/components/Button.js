@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/Button.css'
 
-const Button = ({caption, color, updateSearch}) => {
+const Button = ({caption, color, trigger}) => {
 
     /* functions */
 
@@ -11,7 +11,7 @@ const Button = ({caption, color, updateSearch}) => {
     if (color === "neutral") {
         return (
             <div>
-                <button className="neutral-button" onClick={updateSearch}>{caption}</button>
+                <button className="neutral-button" onClick={trigger}>{caption}</button>
             </div>
         )
     } else if (color === "positive") {
