@@ -12,6 +12,10 @@ button {
     transition: all 0.3s;
 }
 
+.gray-button {
+    background-color: var(--gray-button-color);
+}
+
 .neutral-button {
     background-color: var(--neutral-button-color);
 }

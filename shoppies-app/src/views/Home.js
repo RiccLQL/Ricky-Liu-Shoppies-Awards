@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import SearchBar from '../components/SearchBar';
 import Nominations from '../components/Nominations';
 import Results from '../components/Results';
 import '../styles/Home.css';
 import '../styles/Text.css';
+import '../styles/Button.css'
 import axios from 'axios';
 
 const Home = () => {
@@ -26,9 +27,7 @@ const Home = () => {
     }
 
     const nominate = async (data) => {
-        console.log("yee")
-
-        if (!nominations.find(nom => nom === data) && nominations.length < 5) {
+        if ((!nominations.find(nom => nom.Title === data.Title) || !nominations.find(nom => nom.Year === data.Year)) && nominations.length < 5) {
             let noms = nominations;
             noms.push(data);
             await setNominations(noms);
@@ -44,18 +43,14 @@ const Home = () => {
         setUpdate(update ? 0 : 1);
     }
 
-    useEffect(() => {
-        console.log("ooooo");
-    }, [nominations]);
-
     /* Render */
     return (
         <div className="home">
             <h1>The Shoppies</h1>
             <SearchBar input={searchValue} updateSearchValue={updateSearchValue} updateValue={updateValue} />
             <div className="split-container" >
-                <div style={{ width: '59%', float: 'left' }}><Results results={results.data ? results.data.Search ? results.data.Search : 0 : 0} nominate={nominate}/></div>
-                <div style={{ width: '39%', float: 'right' }}><Nominations nominations={nominations} removeNominate={removeNominate}/></div>
+                <div style={{ width: '59%', float: 'left' }}><Results results={results.data ? results.data.Search ? results.data.Search : 0 : 0} nominate={nominate} nominations={nominations}/></div>
+                <div style={{ width: '39%', float: 'right' }}><Nominations nominations={nominations} removeNominate={removeNominate}/>{nominations.length === 5 ? <button className="positive-button" onClick={() => {}}>Submit Nominations</button> : <button className="gray-button" style={{ cursor: 'unset' }}>Submit Nominations</button> }</div>
                 
             </div>
         </div>
