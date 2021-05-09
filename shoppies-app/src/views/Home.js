@@ -19,7 +19,7 @@ const Home = ({goToSubmitted}) => {
 
     const updateSearchValue = async (query, e) => {
         if (e.key === 'Enter' || !e.key) {
-            setResults(await axios.get(`https://www.omdbapi.com/?apikey=206f97ef&s=${query}`));
+            setResults(await axios.get(`https://www.omdbapi.com/?apikey=${process.env.REACT_APP_APIKEY}&s=${query}`));
         }
     }
 
