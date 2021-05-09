@@ -17,6 +17,7 @@ const Start = ({goToHome}) => {
                 <br></br>
             </div>
             <StartButton goToHome={goToHome}/>
+            <p>Made by Ricky Liu</p>
         </div>
     );
 }
